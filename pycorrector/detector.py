@@ -413,7 +413,7 @@ class Detector(object):
                     for _ in range(n - 1):
                         scores.insert(0, scores[0])
                         scores.append(scores[-1])
-                    avg_scores = [sum(scores[i:i + n]) / len(scores[i:i + n]) for i in range(len(sentence))]
+                    avg_scores = [np.mean(scores[i:i + n]) for i in range(len(sentence))]
                     ngram_avg_scores.append(avg_scores)
 
                 if ngram_avg_scores:
